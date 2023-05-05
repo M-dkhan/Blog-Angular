@@ -1,0 +1,14 @@
+.nav{
+    display: flex;
+    align-items: center;
+}
+.nav a{
+    padding-left: 10px;
+    padding-bottom: 30px;
+    /* align-items: center; */
+}
+
+#admin-nav{
+    align-items: end;
+    text-align: end;
+}

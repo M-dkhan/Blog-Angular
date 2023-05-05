@@ -1,0 +1,19 @@
+<h2 class="text-center mt-2">Welcome Administrator</h2>
+
+<div class="row">
+    <div class="col-9">
+        <h4 class="mx-5">All Posts</h4>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-success" [routerLink]="['/admin/blogs/add']">Add New Blog</button>
+    </div>
+</div>
+<br>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let blog of blogs">
+        {{blog.title}}
+        <button [routerLink]="['/admin/blogs/edit', blog.id]" class="btn btn-warning mx-1 text-end">Edit</button>
+        <button (click)="deleteBlog(blog.id)" class="btn btn-danger text-end">Delete</button>
+    
+    </li>
+</ul>
