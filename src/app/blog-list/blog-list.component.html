@@ -1,49 +1,12 @@
-<!-- <ul *ngFor="let blog of blogs">
-    <li>
-
-        <h2>{{blog.title}}</h2>
-        <a [routerLink]="['/blogs', blog.id]">View</a>
-        <p></p>
-        <p>{{blog.text}}</p>
-        
-    </li>
-</ul> -->
-<div class="container">
-    <div class="row-fluid justify-content-center" >
-        <div *ngFor="let blog of blogs">
-            <div class="col ">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://unsplash.it/640/425" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{blog.title}}</h5>
-                        <p class="card-text">{{ blog.description}} </p>
-                        <a [routerLink]="['/blogs', blog.id]" class="btn btn-primary">View</a>
-                    </div>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="container">
-    <div class="row">
-      <div class="col-md-3 mx-auto my-5" *ngFor="let blog of blogs">
-        <mdb-card>
-          <mdb-card-img [src]="https://unsplash.it/640/425" alt="Card image cap">
-          </mdb-card-img>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>{{blog.title}}</h4>
-            </mdb-card-title>
-  
-            <mdb-card-text>
-              {{blog.description}}
-            </mdb-card-text>
-  
-            <a [routerLink]="['/blogs', blog.id]" class="btn btn-primary">View</a>
-          </mdb-card-body>
-        </mdb-card>
+<div *ngFor="let blog of blogs; let i = index;" class="container mt-3">
+  <div class="row" *ngIf="(i%3) == 0">
+    <div class="col-3 text-center justify-content-center" *ngFor="let blog of blogs.slice(i, i+3);">
+      <img class="card-img-top rounded" src="https://unsplash.it/640/425" alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">{{blog.title}}</h5>
+          <p class="card-text">{{ blog.description}} </p>
+          <a [routerLink]="['/blogs', blog.id]" class="btn btn-primary">View</a>
       </div>
     </div>
-  </div> -->
+  </div>
+</div>
