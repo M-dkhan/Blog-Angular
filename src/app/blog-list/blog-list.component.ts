@@ -14,6 +14,9 @@ export class BlogListComponent implements OnInit {
   constructor(private http: HttpClient, private blogservice:BlogService){}
 
   ngOnInit() {
-    this.blogs = this.blogservice.getBlogs();
+    this.blogservice.getBlogs().subscribe((response: any) => {
+      console.log(response);
+      this.blogs = Object.values(response);
+    });
   }
 }

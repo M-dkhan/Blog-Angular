@@ -1,31 +1,77 @@
-<div class="container mt-5">
+<div class="fixed-button">
+    <a href="#" class="like-button"><i class="far fa-heart"></i> Like</a>
+    <a href="#comments-section" class="comment-button"><i class="far fa-comment"></i> Comment</a>
+</div>
+
+<div *ngIf="blog" class="container mt-5">
     <div class="row">
         <div class="col">
             <h1>{{blog.title}}</h1>
+
+            <small class="mt-4">Read Time: {{blog.read_time}}</small>
             <img class="" src="https://unsplash.it/700/400" alt="Card image cap" width="700" height="400">
         </div>
         <div class="col">
-                <span class="d-flex">
-                    <div class="tags">Html</div>
-                    <div class="tags">Html</div>
-                    <div class="tags">Html</div>
-                    <div class="tags">Html</div>
-                    <br>
-                    <br>
-                </span>
-                <h5>ABOUT ME</h5>
-                <span class="d-flex">
-                    <img class="rounded-circle img" src="https://unsplash.it/90/90" alt="Card image cap" width="60" height="60">
-                    <p class="mx-5">Mohd Zaid Khan May-05-2023</p>
-                </span>
+            <span class="d-flex" *ngFor="let tag of blog.tags">
+                <div class="tags">{{tag.title}}</div>
                 <br>
-                <p>I am a full stack developer.</p>
+                <br>
+            </span>
+            <h5>ABOUT ME</h5>
+            <span class="d-flex">
+                <img class="rounded-circle img" src="https://unsplash.it/90/90" alt="Card image cap" width="60"
+                    height="60">
+                <p class="mx-5">Mohd Zaid Khan May-05-2023</p>
+            </span>
+            <br>
+            <p>I am a full stack developer.</p>
         </div>
     </div>
     <div class="row mt-5">
         <div class="col-8">
-            <p class="mb-3 blog-text">{{blog.text}}</p>
+            <p class="mb-3 blog-text">{{blog.description}} </p>
 
         </div>
     </div>
+
+    <div class="row" *ngIf="comments.length > 0">
+        <div class="col-7">
+            <div class="row">
+                <div class="comments-section mt-5 mx-auto" id="comments-section">
+                    <h3 class="mb-3">Comments</h3>
+                    <div class="comments">
+                        <div class="comment" *ngFor="let comment of comments">
+                            <div class="comment-header d-flex justify-content-between">
+                                <span class="comment-author">{{comment.user_name}}</span>
+                                <span class="comment-date">{{comment.created_at}}</span>
+                            </div>
+                            <div class="comment-body">
+                                <p> {{ comment.comment }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary mt-3" (click)="toggleCommentForm()">Leave a comment</button>
+                </div>
+
+                <div id="comment-form" *ngIf="showCommentForm" class="border p-3 mt-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <button type="button" class="close" aria-label="Close" (click)="showCommentForm = false">
+                                <span aria-hidden="true">&times;</span>
+                            </button>    
+                            <textarea class="form-control" id="comment"></textarea>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-pill mt-3">Submit</button>
+                    </form>
+                </div>
+                                
+            </div>
+        </div>
+    </div>
+
 </div>
+

@@ -17,3 +17,83 @@
 .blog-text{
     text-align: left;
 }
+
+.fixed-button {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fixed-button a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .fixed-button a:last-child {
+    margin-right: 0;
+  }
+  
+  .like-button i {
+    color: red;
+  }
+  
+  .comment-button i {
+    color: blue;
+  }
+  
+  .comments-section {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .comments-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .comments-section .comment {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+  .comments-section .comment:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .comments-section .comment-header {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .comments-section .comment-header span.comment-date {
+    font-weight: 400;
+  }
+
+  .comments-section .comment-body {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+  }
+
+  .comments-section .btn {
+    border-radius: 20px;
+  }
+
+  /* #comment-form {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.btn-primary.rounded-0 {
+    border-radius: 0;
+} */
